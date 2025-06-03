@@ -1,38 +1,38 @@
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: team-two-webapp
-#   namespace: team-two-webapp
-# spec:
-#   replicas: 2
-#   selector:
-#     matchLabels:
-#       app: team-two-webapp
-#   template:
-#     metadata:
-#       labels:
-#         app: team-two-webapp
-#     spec:
-#       containers:
-#         - image: "ghcr.io/la-cc/simple-webapp:1.0.1"
-#           name: team-two-webapp
-#           env:
-#             - name: APP_COLOR
-#               value: "green"
-#           resources:
-#             requests:
-#               memory: "64Mi"
-#               cpu: "250m"
-#             limits:
-#               memory: "512Mi"
-#               cpu: "500m"
-#           ports:
-#             - containerPort: 8080
-#       securityContext:
-#         runAsUser: 1000
-#       dnsPolicy: ClusterFirst
-#       restartPolicy: Always
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: team-two-webapp
+  namespace: team-two-webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: team-two-webapp
+  template:
+    metadata:
+      labels:
+        app: team-two-webapp
+    spec:
+      containers:
+        - image: "ghcr.io/la-cc/simple-webapp:1.0.1"
+          name: team-two-webapp
+          env:
+            - name: APP_COLOR
+              value: "green"
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
+      securityContext:
+        runAsUser: 1000
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
 
 
-resources:
-  - non-existent.yaml  # <- This file doesn't exist
+# resources:
+#   - non-existent.yaml  # <- This file doesn't exist
